@@ -1,6 +1,7 @@
 using DiGi.Log.Classes;
 using DiGi.Log.Enums;
 using System;
+using System.Globalization;
 
 namespace DiGi.Log
 {
@@ -74,7 +75,7 @@ namespace DiGi.Log
             string? text;
             try
             {
-                text = string.Format(format, values);
+                text = string.Format(CultureInfo.CurrentCulture, format, values);
             }
             catch
             {

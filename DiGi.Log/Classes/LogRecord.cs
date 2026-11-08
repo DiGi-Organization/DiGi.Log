@@ -2,6 +2,7 @@ using DiGi.Core.Interfaces;
 using DiGi.Log.Enums;
 using DiGi.Log.Interfaces;
 using System;
+using System.Globalization;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
@@ -160,11 +161,11 @@ namespace DiGi.Log.Classes
         {
             if (id == null)
             {
-                return string.Format("{0}\t{1}\t{2}", dateTime.ToString("yyyy/MM/dd HH:mm:ss.ff"), Core.Query.Description(logRecordType), text ?? string.Empty);
+                return string.Format(CultureInfo.CurrentCulture, "{0}\t{1}\t{2}", dateTime.ToString("yyyy/MM/dd HH:mm:ss.ff", CultureInfo.CurrentCulture), Core.Query.Description(logRecordType), text ?? string.Empty);
             }
             else
             {
-                return string.Format("{0}\t{1}\t{2}\t{3}", dateTime.ToString("yyyy/MM/dd HH:mm:ss.ff"), id, Core.Query.Description(logRecordType), text ?? string.Empty);
+                return string.Format(CultureInfo.CurrentCulture, "{0}\t{1}\t{2}\t{3}", dateTime.ToString("yyyy/MM/dd HH:mm:ss.ff", CultureInfo.CurrentCulture), id, Core.Query.Description(logRecordType), text ?? string.Empty);
             }
         }
 

@@ -7,6 +7,7 @@ namespace DiGi.Log.Classes
     /// Attribute used to define properties for a log record field.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "Public attribute type applied by consumers and returned by Query.LogRecordProperties; renaming it is a breaking change.")]
     public class LogRecordProperties : Attribute
     {
         private readonly string? id;
